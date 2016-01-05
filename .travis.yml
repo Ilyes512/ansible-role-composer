@@ -19,7 +19,6 @@ install:
   - pip install ansible
   # Add ansible.cfg to pick up roles path.
   - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
-  - pwd # curious what the current directory is
   # Add an Ansible role for installingphp
   - ansible-galaxy install Ilyes512.php -p ../
 
