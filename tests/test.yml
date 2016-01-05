@@ -2,4 +2,5 @@
 - hosts: localhost
   remote_user: travis
   roles:
-    - ansible-role-composer
+    - Ilyes512.php
+    - { role: ansible-role-composer, tags: ['ansidev.composer'] }
