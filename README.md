@@ -1,6 +1,6 @@
-Compose (Ansidev)
+Composer (Ansidev)
 =========
-[![Build Status](https://travis-ci.org/Ilyes512/ansible-role-locale.svg)](https://travis-ci.org/Ilyes512/ansible-role-locale)
+[![Build Status](https://travis-ci.org/Ilyes512/ansible-role-composer.svg)](https://travis-ci.org/Ilyes512/ansible-role-composer)
 
 This role installs Composer for Ubuntu Trusty (14.04).
 
