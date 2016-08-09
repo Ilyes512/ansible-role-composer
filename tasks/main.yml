@@ -2,7 +2,7 @@
 - name: Check if Composer is installed.
   stat:
     path: "{{ composer_install_path }}"
-  register: composer_bin
+  register: composer_is_installed
 
 - include: install.yml
   when: not composer_is_installed
@@ -10,7 +10,7 @@
 - name: Check if Composer is installed.
   stat:
     path: "{{ composer_install_path }}"
-  register: composer_bin
+  register: composer_is_installed
 
 - include: update.yml
   when: composer_is_installed
