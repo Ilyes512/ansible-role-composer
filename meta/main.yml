@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Ilyes Ahidar
-  description: This role installs Composer for Ubuntu Trusty (14.04).
+  description: This role installs Composer for Ubuntu Trusty (14.04) and Xenial (16.04).
   license: MIT
   min_ansible_version: 2.0
   platforms:
@@ -15,4 +15,4 @@ galaxy_info:
   - system
   - web
 dependencies:
-  - Ilyes512.php
+  - php
