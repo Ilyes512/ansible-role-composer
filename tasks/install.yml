@@ -1,0 +1,38 @@
+---
+- name: Create Composer download folder
+  become: yes
+  file:
+   path: /usr/local/composer
+   state: directory
+   owner: root
+   group: root
+   mode: 0755
+
+- name: Download Composer
+  become: yes
+  get_url:
+    url: https://getcomposer.org/installer
+    dest: /usr/local/composer/installer
+    mode: 0755
+
+- name: Install Composer
+  become: yes
+  command: ./composerinstaller
+  args:
+    chdir: /usr/local/composer
+    creates: /usr/local/composer/composer.phar
+
+- name: Copy composer.phar to its final location
+  become: yes
+  copy:
+    src: /usr/local/composer/composer.phar
+    dest: /usr/local/bin/composer
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Clean Composer download folder
+  become: yes
+  file:
+   path: /usr/local/composer
+   state: absent

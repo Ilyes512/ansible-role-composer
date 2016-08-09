@@ -1,12 +1,13 @@
 ---
-- name: Check if php is installed
-  command: php --version
-  changed_when: false
-  register: composer_php_check
+#- name: Check if php is installed
+#  command: php --version
+#  changed_when: false
+#  register: composer_php_check
 
-- name: Composer | Install Composer
-  sudo: yes
-  shell: "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer"
-  args:
-    creates: /usr/local/bin/composer
-  when: composer_php_check.stdout.find('not installed') == -1
+- name: Check if Composer is installed
+  command: composer_php_check.stdout.find('not installed') == -1
+  changed_when: false
+  register: composer_is_installed
+
+- include:
+  when: not composer_is_installed
