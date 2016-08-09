@@ -4,4 +4,3 @@ ansidev_production: false
 
 composer_update_day: 20
 composer_path: /usr/local/bin
-composer_install_path: /usr/local/composer
