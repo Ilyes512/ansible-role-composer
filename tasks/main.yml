@@ -5,12 +5,12 @@
   register: composer_is_installed
 
 - include: install.yml
-  when: not composer_is_installed
+  when: not composer_is_installed.stat.exists
 
 - name: Check if Composer is installed.
   stat:
     path: "{{ composer_install_path }}"
-  register: composer_is_installed
+  register: composer_is_installed.stat.exists
 
 - include: update.yml
   when: composer_is_installed
