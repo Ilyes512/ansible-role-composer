@@ -1,16 +1,16 @@
 ---
-- name: Check if Composer is installed
-  command: composer_php_check.stdout.find('not installed') == -1
-  changed_when: false
-  register: composer_is_installed
+- name: Check if Composer is installed.
+  stat:
+    path: "{{ composer_install_path }}"
+  register: composer_bin
 
 - include: install.yml
   when: not composer_is_installed
 
-- name: Recheck if Composer is installed
-  command: composer_php_check.stdout.find('not installed') == -1
-  changed_when: false
-  register: composer_is_installed
+- name: Check if Composer is installed.
+  stat:
+    path: "{{ composer_install_path }}"
+  register: composer_bin
 
 - include: update.yml
-  when: not composer_is_installed
+  when: composer_is_installed
